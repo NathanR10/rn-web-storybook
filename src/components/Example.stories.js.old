@@ -1,0 +1,31 @@
+import React from 'react';
+import Example from './Example';
+import { storiesOf } from '@storybook/react';
+
+export default {
+  title: 'AExample',
+  component: Example,
+  // structure -> control Storybook
+  argTypes: {
+    color: {
+      control: {
+        type: 'color',
+      },
+    },
+  },
+};
+
+const Template = (args) => <Example {...args} />;
+
+// storyOf -> name.args {data}
+export const Test1 = Template.bind({});
+Test1.args = {
+  color: 'crimson',
+  label: 'test1'
+};
+//
+export const Test2 = Template.bind({});
+Test2.args = {
+  color: 'limegreen',
+  label: 'test2'
+};
