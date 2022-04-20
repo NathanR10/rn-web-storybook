@@ -26,7 +26,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Return selected value' // description
+        component: '<b>Radio: </b>Return <i>selected</i> value' // description
       }
     },
   },

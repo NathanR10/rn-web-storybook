@@ -19,7 +19,7 @@ const data = {
   minWidth: 130,
   fullWidth: false,
   disabled: false,
-  radio: false
+  multiple: true
 }
 
 export default {
@@ -29,8 +29,9 @@ export default {
     docs: {
       description: {
         // description
-        component: '<b>Default: </b>Return [array] of <i>selected</i> values<br>' +
-        '<b>Radio: </b>Return <i>selected</i> value'
+        component: '<b>Default: </b>Return <i>selected</i> value<br>' +
+        '<b>Multiple: </b>Return [array] of <i>selected</i> values'
+        
       }
     },
   },
@@ -40,47 +41,92 @@ export default {
       control: {
         type: 'color',
       },
+      table: {
+        type: { summary: 'Color' },
+        defaultValue: { summary: '#1c3149' }
+      }
     },
     baseColor: {
       control: {
         type: 'color',
       },
+      table: {
+        type: { summary: 'Color' },
+        defaultValue: { summary: '#bfbfbf' }
+      }
     },
     textColor: {
       control: {
         type: 'color',
       },
+      table: {
+        type: { summary: 'Color' },
+        defaultValue: { summary: '#ffffff' }
+      }
+    },
+    items: {
+      control: 'object',
+      table: {
+        type: { summary: 'Array of Object' },
+        defaultValue: { summary: '[{label: ..., value: ...}]' }
+      }
     },
     fontSize: {
       control: { type: 'range', min: 1, max: 50, step: 1 },
+      table: {
+        type: { summary: 'Int' },
+        defaultValue: { summary: '14' }
+      }
     },
     padding: {
       control: { type: 'range', min: 0, max: 100, step: 1 },
+      table: {
+        type: { summary: 'Int' },
+        defaultValue: { summary: '20' }
+      }
     },
     margin: {
       control: { type: 'range', min: 0, max: 100, step: 1 },
+      table: {
+        type: { summary: 'Int' },
+        defaultValue: { summary: '5' }
+      }
     },
     fullWidth: {
       control: 'boolean',
+      table: {
+        type: { summary: 'Boolean' },
+        defaultValue: { summary: 'false' }
+      }
     },
     minWidth: {
       control: { type: 'range', min: 0, max: 400, step: 1 },
+      table: {
+        type: { summary: 'Int' },
+        defaultValue: { summary: '130' }
+      }
     },
     disabled: {
       control: 'boolean',
-    },
-    radio: {
       table: {
-        disable: true,
+        type: { summary: 'Boolean' },
+        defaultValue: { summary: 'false' }
+      }
+    },
+    multiple: {
+      control: 'boolean',
+      table: {
+        type: { summary: 'Boolean' },
+        defaultValue: { summary: 'false' }
       }
     }
   }
 }
 
 const Template = (args) => {
-  const [value, setValue] = useState(data.radio ? null : [])
-  const selectItem = (payload, radio) => {
-    if (!radio) {
+  const [value, setValue] = useState(data.multiple ? [] : null)
+  const selectItem = (payload, multiple) => {
+    if (multiple) {
       if (value.includes(payload)) {
         var tempArr = value
         for (let i = 0; i < tempArr.length; i++) {
@@ -111,20 +157,5 @@ Default.args = {
   fullWidth: data.fullWidth,
   minWidth: data.minWidth,
   disabled: data.disabled,
-  radio: false
-}
-//
-export const Radio = Template.bind({});
-Radio.args = {
-  itemsColor: data.itemsColor,
-  baseColor: data.baseColor,
-  textColor: data.textColor,
-  items: data.items,
-  fontSize: data.fontSize,
-  padding: data.padding,
-  margin: data.margin,
-  fullWidth: data.fullWidth,
-  minWidth: data.minWidth,
-  disabled: data.disabled,
-  radio: true
+  multiple: data.multiple
 }

@@ -6,7 +6,7 @@ const Button2 = (props) => {
     var items = props.items.map((x, index) =>
       <Pressable
         key={index}
-        onPress={() => {props.onClick(x.value, props.radio)}}
+        onPress={() => {props.onClick(x.value, props.multiple)}}
         style={[
           styles.button,
           { padding: props.padding, minWidth: props.fullWidth ? (100/props.items.length + '%') : (props.minWidth) },
