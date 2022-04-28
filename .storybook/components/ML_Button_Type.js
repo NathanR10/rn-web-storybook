@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet, Pressable } from 'react-native'
 
-const Button1 = (props) => {
+const ML_Button_Type = (props) => {
   if (!props.disabled) {
     var items = props.items.map((x, index) =>
       <Pressable
@@ -76,5 +76,5 @@ const styles = StyleSheet.create({
   },
 })
 
-export default Button1;
+export default ML_Button_Type;
 

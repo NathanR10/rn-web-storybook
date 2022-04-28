@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Button2 from './Button2'
+import ML_Button_Rounded from '../components/ML_Button_Rounded'
 import { storiesOf } from '@storybook/react'
 import { View, Text, StyleSheet, Pressable } from 'react-native'
 
@@ -23,8 +23,8 @@ const data = {
 }
 
 export default {
-  title: 'Button2',
-  component: Button2,
+  title: 'ML_Button_Rounded',
+  component: ML_Button_Rounded,
   parameters: {
     docs: {
       description: {
@@ -117,7 +117,7 @@ export default {
       control: 'boolean',
       table: {
         type: { summary: 'Boolean' },
-        defaultValue: { summary: 'false' }
+        defaultValue: { summary: 'true' }
       }
     }
   }
@@ -142,7 +142,7 @@ const Template = (args) => {
       setValue(payload)
     }
   }
-  return <Button2 value={value} onClick={selectItem} {...args} />
+  return <ML_Button_Rounded value={value} onClick={selectItem} {...args} />
 }
 
 export const Default = Template.bind({});

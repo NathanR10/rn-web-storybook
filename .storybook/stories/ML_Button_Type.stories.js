@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Button1 from './Button1'
+import ML_Button_Type from '../components/ML_Button_Type'
 import { storiesOf } from '@storybook/react'
 import { View, Text, StyleSheet, Pressable } from 'react-native'
 
@@ -21,8 +21,8 @@ const data = {
 }
 
 export default {
-  title: 'Button1',
-  component: Button1,
+  title: 'ML_Button_Type',
+  component: ML_Button_Type,
   parameters: {
     docs: {
       description: {
@@ -61,7 +61,7 @@ const Template = (args) => {
   const selectItem = (payload) => {
     setValue(payload)
   }
-  return <Button1 value={value} onClick={selectItem} {...args} />
+  return <ML_Button_Type value={value} onClick={selectItem} {...args} />
 }
 
 export const Default = Template.bind({});
